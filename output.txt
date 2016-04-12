@@ -1,0 +1,453 @@
+word:एकदा
+root:एकदा
+word:नृपः
+root:नृप
+word:कृष्णदेवरायः
+root:No answer found
+word:सभासदां
+root:सभासद्
+word:बुद्धिपरीक्षां
+root:No answer found
+word:कर्तुम्
+root:कृ1
+word:इयेष।
+root:No answer found
+word:स
+root:स
+word:प्रत्येकं
+root:प्रत्येक
+word:सभासदे
+root:सभासद्
+word:स्वर्णमुद्रासम्भृतं
+root:No answer found
+word:कौशेयस्यूतं
+root:No answer found
+word:दत्त्वा
+root:दो1
+word:प्राह,
+root:प्राह
+word:मया
+root:मा
+word:भवद्भ्यः
+root:भवत्
+word:इदमुपायनं
+root:No answer found
+word:दीयते।
+root:No answer found
+word:एतद्
+root:एतद्
+word:द्रव्यं
+root:द्रव्य
+word:सप्ताहेनैकेन
+root:No answer found
+word:व्ययीकर्तव्यम्।
+root:No answer found
+word:एतेन
+root:एत
+word:स्वाभीष्टानि
+root:No answer found
+word:वस्तूनि
+root:वस्तु
+word:क्रेतव्यानि,
+root:No answer found
+word:किन्तु
+root:किन्तु
+word:मम
+root:अस्मद्
+word:मुखदर्शनं
+root:No answer found
+word:विना
+root:विना
+word:आपणात्
+root:आपण
+word:किमपि
+root:किमपि
+word:न
+root:न
+word:क्रयणीयम्।
+root:No answer found
+word:स्वर्णमुद्राणां
+root:No answer found
+word:लाभेन
+root:लाभ
+word:सर्वे
+root:सर्व
+word:हर्षनिर्भराः
+root:No answer found
+word:सञ्जाताः।
+root:No answer found
+word:अपरेद्युः
+root:अपरेद्युः
+word:नानापदार्थानां
+root:No answer found
+word:क्रयाभिलाषेण
+root:No answer found
+word:समुत्साहसम्भृतमनसः
+root:No answer found
+word:यदा
+root:यदा
+word:ते
+root:ता
+word:आपणं
+root:आपण
+word:प्राप्ताः,
+root:प्राप्त
+word:ते
+root:ता
+word:किमपि
+root:किमपि
+word:न
+root:न
+word:क्रीतवन्तः
+root:क्रीतवत्
+word:यतो
+root:No answer found
+word:राजमुखदर्शनं
+root:No answer found
+word:विना
+root:विना
+word:क्रयणं
+root:क्रयण
+word:सम्भवि
+root:No answer found
+word:नासीत्।
+root:No answer found
+word:आपणे
+root:आपण
+word:कुतो
+root:No answer found
+word:राजदर्शनम्
+root:No answer found
+word:?
+Error:<script>
+function analyse_noun_forms(encod,word){
+  window.open('http://sanskrit.uohyd.ac.in/cgi-bin/scl/morph/morph.cgi?encoding='+encod+'&morfword='+word+'','popUpWindow','height=200,width=600,left=100,top=100,resizable=yes,scrollbars=yes,toolbar=yes,menubar=no,location=no,directories=no, status=yes').focus();}
+function generate_noun_forms(encod,prAwi,lifga,level){
+  window.open('http://sanskrit.uohyd.ac.in/cgi-bin/scl/skt_gen/noun/noun_gen.cgi?encoding='+encod+'&rt='+prAwi+'&gen='+lifga+'&level='+level+'','popUpWindow','height=500,width=400,left=100,top=100,resizable=yes,scrollbars=yes,toolbar=yes,menubar=no,location=no,directories=no, status=yes').focus();
+}
+function generate_kqw_forms(encod,vb){
+  window.open('http://sanskrit.uohyd.ac.in/cgi-bin/scl/skt_gen/kqw/kqw_gen.cgi?encoding='+encod+'&vb='+vb+'','popUpWindow','height=500,width=400,left=100,top=100,resizable=yes,scrollbars=yes,toolbar=yes,menubar=no,location=no,directories=no, status=yes').focus();
+}
+function generate_waxXiwa_forms(encod,rt,gen){
+  window.open('http://sanskrit.uohyd.ac.in/cgi-bin/scl/skt_gen/waxXiwa/waxXiwa_gen.cgi?encoding='+encod+'&rt='+rt+'&gen='+gen+'','popUpWindow','height=500,width=400,left=100,top=100,resizable=yes,scrollbars=yes,toolbar=yes,menubar=no,location=no,directories=no, status=yes').focus();
+}
+</script>
+<table style="border-collapse: collapse;" bordercolor='brown' valign='middle' bgcolor='#297e96' border='1' cellpadding='2' cellspacing='2' >
+<tr></table>
+
+root:?
+word:अत-
+root:No answer found
+word:राजादेशं
+root:No answer found
+word:स्मारं
+root:स्मार
+word:स्मारं
+root:स्मार
+word:नैराश्योपहतचित्तवृत्तयः
+root:No answer found
+word:सर्वे
+root:सर्व
+word:किमपि
+root:किमपि
+word:वस्तु
+root:वस्तु
+word:अक्रीत्वैव
+root:No answer found
+word:स्वस्वगृहाणि
+root:No answer found
+word:प्रतिनिवृत्ताः।
+root:No answer found
+word:इत्थं
+root:इत्थम्
+word:गेहेषु
+root:गेह
+word:तिष्ठतां
+root:तिष्ठत्
+word:तेषां
+root:तद्
+word:सप्ताहोऽतिक्रान्तः
+root:No answer found
+word:।
+root:No answer found
+word:अवसानं
+root:अवसान
+word:गतेऽवधौ
+root:No answer found
+word:सर्वे
+root:सर्व
+word:राजसभायाम्
+root:No answer found
+word:उपस्थिता
+root:उपस्थिता
+word:बभूवुः
+root:भू1
+word:।
+root:No answer found
+word:ततो
+root:No answer found
+word:वार्ताक्रमेण
+root:No answer found
+word:भूपतिस्तान्
+root:No answer found
+word:पप्रच्छ-
+root:No answer found
+word:मत्प्रदत्ताभिः
+root:No answer found
+word:मुद्राभिः
+root:मुद्रा
+word:किं
+root:किम्
+word:किं
+root:किम्
+word:क्रीतवन्तो
+root:No answer found
+word:भवन्तः
+root:भवत्
+word:?
+Error:<script>
+function analyse_noun_forms(encod,word){
+  window.open('http://sanskrit.uohyd.ac.in/cgi-bin/scl/morph/morph.cgi?encoding='+encod+'&morfword='+word+'','popUpWindow','height=200,width=600,left=100,top=100,resizable=yes,scrollbars=yes,toolbar=yes,menubar=no,location=no,directories=no, status=yes').focus();}
+function generate_noun_forms(encod,prAwi,lifga,level){
+  window.open('http://sanskrit.uohyd.ac.in/cgi-bin/scl/skt_gen/noun/noun_gen.cgi?encoding='+encod+'&rt='+prAwi+'&gen='+lifga+'&level='+level+'','popUpWindow','height=500,width=400,left=100,top=100,resizable=yes,scrollbars=yes,toolbar=yes,menubar=no,location=no,directories=no, status=yes').focus();
+}
+function generate_kqw_forms(encod,vb){
+  window.open('http://sanskrit.uohyd.ac.in/cgi-bin/scl/skt_gen/kqw/kqw_gen.cgi?encoding='+encod+'&vb='+vb+'','popUpWindow','height=500,width=400,left=100,top=100,resizable=yes,scrollbars=yes,toolbar=yes,menubar=no,location=no,directories=no, status=yes').focus();
+}
+function generate_waxXiwa_forms(encod,rt,gen){
+  window.open('http://sanskrit.uohyd.ac.in/cgi-bin/scl/skt_gen/waxXiwa/waxXiwa_gen.cgi?encoding='+encod+'&rt='+rt+'&gen='+gen+'','popUpWindow','height=500,width=400,left=100,top=100,resizable=yes,scrollbars=yes,toolbar=yes,menubar=no,location=no,directories=no, status=yes').focus();
+}
+</script>
+<table style="border-collapse: collapse;" bordercolor='brown' valign='middle' bgcolor='#297e96' border='1' cellpadding='2' cellspacing='2' >
+<tr></table>
+
+root:?
+word:प्रश्नमाकर्ण्य
+root:No answer found
+word:समे
+root:सम
+word:मौनं
+root:मौन
+word:भेजुः।
+root:No answer found
+word:ततः
+root:ततः
+word:साहसं
+root:साहस
+word:संधार्य
+root:सम्_धृ1
+word:पुरोहितोऽवदत्
+root:No answer found
+word:-
+root:No answer found
+word:देव!
+root:देव
+word:कथंकारं
+root:No answer found
+word:भवेत्
+root:भू1
+word:क्रयः?
+root:क्रय
+word:भवतो
+root:No answer found
+word:दर्शनं
+root:दर्शन
+word:विना
+root:विना
+word:क्रयणम्
+root:क्रयण
+word:अशक्यमासीत्
+root:No answer found
+word:।
+root:No answer found
+word:आपणे
+root:आपण
+word:भवतो
+root:No answer found
+word:दर्शनं
+root:दर्शन
+word:कथं
+root:कथम्
+word:स्यात्,
+root:अस्2
+word:अतः
+root:अ
+word:मुद्रासु
+root:मुद्रा
+word:सतीष्वपि
+root:No answer found
+word:किमपि
+root:किमपि
+word:न
+root:न
+word:क्रीतमस्माभिः
+root:No answer found
+word:।
+root:No answer found
+word:पुरोहितवचसः
+root:No answer found
+word:प्रतिशब्द
+root:No answer found
+word:इव
+root:इव
+word:सर्वैः
+root:सर्व
+word:तदेवोक्तम्
+root:No answer found
+word:।
+root:No answer found
+word:तदनन्तरं
+root:No answer found
+word:भूपालेन
+root:भूपाल
+word:तेनालीरामः
+root:No answer found
+word:पृष्टः।
+root:No answer found
+word:स
+root:स
+word:सविनयमूचे
+root:No answer found
+word:यन्मया
+root:No answer found
+word:तु
+root:तु
+word:प्रथमे
+root:प्रथम
+word:दिने
+root:दिन
+word:एव
+root:एव
+word:सर्वम्
+root:सर्व
+word:अभीष्टवस्तुजातं
+root:No answer found
+word:क्रीतम्।
+root:No answer found
+word:अयं
+root:अय
+word:कौशेयकञ्चुकः,
+root:No answer found
+word:धौतवसत्रम्,
+root:No answer found
+word:दुकूलयुग्मम्,
+root:No answer found
+word:उपानहौ,
+root:उपानह्
+word:उपनेत्रम्
+root:No answer found
+word:गृहोपयोगी
+root:No answer found
+word:वस्तुसम्भारश्च
+root:No answer found
+word:।
+root:No answer found
+word:उत्तरं
+root:उत्तर
+word:निशम्य
+root:नि_शम्1
+word:भूपोऽभण्त्
+root:No answer found
+word:-
+root:No answer found
+word:अस्य
+root:अ
+word:अयमाशयः
+root:No answer found
+word:यत्
+root:यत्
+word:त्वया
+root:युष्मद्
+word:ममादेशोऽवहेलितः
+root:No answer found
+word:।
+root:No answer found
+word:तेनालीरामः
+root:No answer found
+word:विनम्रभावेन
+root:No answer found
+word:प्रतिवचनं
+root:प्रतिवचन
+word:ददौ,
+root:दद्
+word:मया
+root:मा
+word:भवदाज्ञायाः
+root:No answer found
+word:उल्लङ्घनं
+root:उल्लङ्घन
+word:न
+root:न
+word:विहितम्।
+root:No answer found
+word:स्वर्णमुद्रासु
+root:No answer found
+word:अंकितं
+root:अङ्कित
+word:भवन्मुखं
+root:No answer found
+word:दर्शं
+root:दर्श
+word:दर्शं
+root:दर्श
+word:मनसा
+root:मनस्
+word:प्रणमंश्च
+root:No answer found
+word:अहं
+root:अस्मद्
+word:ताभिः
+root:ता
+word:गृहोपकरणानि
+root:गृहोपकरण
+word:अक्रीणाम्।
+root:No answer found
+word:एतदाकर्ण्य
+root:No answer found
+word:सलज्जाः
+root:सलज्ज
+word:पारिषद्याः
+root:पारिषदी
+word:आनतवदना
+root:No answer found
+word:अजायन्त
+root:जै1
+word:।
+root:No answer found
+word:इत्थं
+root:इत्थम्
+word:निजबुद्धिकौशलेन
+root:No answer found
+word:तेनालीरामो
+root:No answer found
+word:भूपतिना
+root:भूपति
+word:भूयो
+root:No answer found
+word:भूरिविभवैः
+root:No answer found
+word:सत्कृतोऽभवत्
+root:No answer found
+word:।
+root:No answer found
+word:वैभवैरतुलैः
+root:No answer found
+word:पूर्णे
+root:पूर्ण
+word:नाना
+root:नाना
+word:वस्तुविलक्षणे
+root:No answer found
+word:।
+root:No answer found
+word:भवेऽस्मिन्
+root:No answer found
+word:भुञ्जते
+root:भुज्2
+word:भोगान्
+root:भोग
+word:बुद्धिशक्तिसमन्विताः
+root:No answer found
+word:॥
+root:No answer found
+594.669000864
