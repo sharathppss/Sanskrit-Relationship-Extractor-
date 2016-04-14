@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+
 import requests
 import bs4
 import time
@@ -9,6 +10,7 @@ def root_ext(inp):
     print "word:"+inp
     response = requests.post("http://sanskrit.uohyd.ac.in/cgi-bin/scl/morph/morph.cgi", data={'morfword':inp, "encoding":"Unicode"})
     t=response.text
+    print "Response = ", t
     t=t.encode("utf-8")
     try:
         #t=t.replace("\n","")
@@ -16,6 +18,7 @@ def root_ext(inp):
         tree=bs4.BeautifulSoup(t,"lxml")
         td=tree.find("td")
         if td==None:
+            print (">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
             return inp
             #return tree.find("tr").string.rstrip()
         a=td.find("a")
@@ -43,7 +46,7 @@ if __name__ == "__main__":
             for u in q:
                 a=u.split()
                 for d in a:
-                    print("root:"+root_ext(d).encode("utf-8"))
+                    print("root:"+root_ext(d))
     end=time.time()
     print(str(end-start))
     #print finder("विश्वामित्रम्")
