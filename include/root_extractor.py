@@ -7,10 +7,10 @@ start=time.time()
 #sys.stdout = open('output.txt', 'w')
 
 def root_ext(inp):
-    print "word:"+inp
+    #print ("word:"+inp)
     response = requests.post("http://sanskrit.uohyd.ac.in/cgi-bin/scl/morph/morph.cgi", data={'morfword':inp, "encoding":"Unicode"})
     t=response.text
-    print "Response = ", t
+    #print "Response = ", t
     t=t.encode("utf-8")
     try:
         #t=t.replace("\n","")
@@ -35,7 +35,7 @@ def root_ext(inp):
         #    res=re.findall("(>)(.*[^<])(<\/a)",s[0])[0][1]
         return r
     except:
-        print "Error:"+t
+        #print "Error:"+t
         return inp
 
 if __name__ == "__main__":
