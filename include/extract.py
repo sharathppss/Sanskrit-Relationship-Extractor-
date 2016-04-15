@@ -3,8 +3,9 @@
 import re
 import sys
 
-fd = open ("page.html", "r")
-fw = open ("output", "w")
+fd = open (sys.argv[1], "r")
+out_file = sys.argv[1]+".out"
+fw = open (out_file, "w")
 
 corpus=""
 count=0
