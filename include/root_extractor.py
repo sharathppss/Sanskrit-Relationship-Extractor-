@@ -3,11 +3,13 @@
 import requests
 import bs4
 import time
+import codecs as cs
 start=time.time()
 #sys.stdout = open('output.txt', 'w')
 
 def root_ext(inp):
-    #print ("word:"+inp)
+    print ("word:"+inp)
+    inp=inp.decode("utf-8")
     response = requests.post("http://sanskrit.uohyd.ac.in/cgi-bin/scl/morph/morph.cgi", data={'morfword':inp, "encoding":"Unicode"})
     t=response.text
     #print "Response = ", t
@@ -18,7 +20,7 @@ def root_ext(inp):
         tree=bs4.BeautifulSoup(t,"lxml")
         td=tree.find("td")
         if td==None:
-            print (">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
+            #print (">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
             return inp
             #return tree.find("tr").string.rstrip()
         a=td.find("a")
@@ -39,14 +41,16 @@ def root_ext(inp):
         return inp
 
 if __name__ == "__main__":
-    with open("input.txt","r") as f:
+    out=cs.open("output.txt","w","utf-8-sig")
+    with open("../data/input.txt","r") as f:
         s=f.readlines()
         for i in s:
             q=i.split("|")
             for u in q:
                 a=u.split()
                 for d in a:
-                    print("root:"+root_ext(d))
+                    out.write("root:"+root_ext(d))
+
     end=time.time()
     print(str(end-start))
     #print finder("विश्वामित्रम्")

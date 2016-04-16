@@ -14,7 +14,7 @@ def find_list(dic): #res=>Dict with element key and main word as value (reversin
 
 def find_relation_tuples(str,names_all,name_rel): #names_all=> Dict with names key and main word as value (addressing synonoymns)
     # #name_rel=> Dict with "n1|n2" keys and relationship value.
-    str=str.translate(str.maketrans(",:","  ")).strip() # strip punctuations and replace with space
+    str=str.translate(string.maketrans(",:","  ")).strip() # strip punctuations and replace with space
     tokens=str.split()
     names=set()
     res=[]
@@ -27,9 +27,9 @@ def find_relation_tuples(str,names_all,name_rel): #names_all=> Dict with names k
     for tok in tokens:
         root=rx.root_ext(tok)
         #print(tok, [ord(c) for c in root], bytes(root, 'utf-8'))
-        if root in names_all.keys():
-            names.add(names_all[root])
-    print(names)
+        if root.encode("utf-8") in names_all.keys():
+            names.add(names_all[root.encode("utf-8")])
+    #print(names)
     c=[]
     for n1 in names:
         c.append(n1)
@@ -44,7 +44,7 @@ def find_relation_tuples(str,names_all,name_rel): #names_all=> Dict with names k
                 return res
             par=[x for x in tokens if x not in [n1,n2]]
             res.append([[n1,n2],rel,par]) #first arg is name pair,second in relationship between them,final is the list of all tokes in the sentence
-    print(res)
+    #print(res)
     return res
 
 if __name__ == "__main__":

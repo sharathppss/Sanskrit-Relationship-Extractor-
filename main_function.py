@@ -14,7 +14,7 @@ def file_extract(file,n_dict,n_rel):
     with open(file,"r") as f:
         lines=f.read()
         segments=lines.rstrip().split("|")
-        print(segments)
+        #print(segments)
         for s in segments:
             res=res+p.find_relation_tuples(s.rstrip(),n_dict,n_rel)
     return res
@@ -46,11 +46,13 @@ if __name__=="__main__":
     r={'राम|सीता':'पतिः'}
     name_dict=p.find_list(d)
     train_data=[]
-    files=glob.glob("data/*")
+    #files=glob.glob("data/*")
+    files=["data/input.txt"]
     for f in files:
         if os.path.isfile(f):
             train_data=train_data+file_extract(f,name_dict,r)
 #    with open('x','w') as fd:
 #        fd.write(json.dumps(train_data))
-    vectorize(train_data)
+    print(train_data)
+    #vectorize(train_data)
 #train_data is a list of training data with each element having [[name1,name2],relationship,[<list of words in sentence>]]
