@@ -12,7 +12,7 @@ def find_list(dic): #res=>Dict with element key and main word as value (reversin
             res[n]=ele
     return res
 
-def find_relation_tuples(str,names_all,name_rel): #names_all=> Dict with names key and main word as value (addressing synonoymns)
+def find_relation_tuples(str,names_all,name_rel, data_type): #names_all=> Dict with names key and main word as value (addressing synonoymns)
     # #name_rel=> Dict with "n1|n2" keys and relationship value.
     str=str.translate(string.maketrans(",:","  ")).strip() # strip punctuations and replace with space
     tokens=str.split()
@@ -34,17 +34,20 @@ def find_relation_tuples(str,names_all,name_rel): #names_all=> Dict with names k
     for n1 in names:
         c.append(n1)
         for n2 in [x for x in names if x not in c]:
-            n_key=n1+"|"+n2
-            n_key_rev = n2+"|"+n1
-            if n_key in name_rel:
-                rel=name_rel[n_key]
-            elif n_key_rev in name_rel:
-                rel = name_rel[n_key_rev]
+            if data_type == "train":
+                n_key=n1+"|"+n2
+                n_key_rev = n2+"|"+n1
+                if n_key in name_rel:
+                    rel=name_rel[n_key]
+                elif n_key_rev in name_rel:
+                    rel = name_rel[n_key_rev]
+                else:
+                    return res
+                par=[x for x in tokens if x not in [n1,n2]]
+                res.append([[n1,n2],rel,par]) #first arg is name pair,second in relationship between them,final is the list of all tokes in the sentence
             else:
-                return res
-            par=[x for x in tokens if x not in [n1,n2]]
-            res.append([[n1,n2],rel,par]) #first arg is name pair,second in relationship between them,final is the list of all tokes in the sentence
-    #print(res)
+                par = [x for x in tokens if x not in [n1,n2]]
+                res.append([n1,n2],par)
     return res
 
 if __name__ == "__main__":

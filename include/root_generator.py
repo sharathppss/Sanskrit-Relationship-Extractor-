@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
-from include import root_extractor as rx
+import os
+import root_extractor as rx
 import codecs as cdec
 import glob
 import re
@@ -53,9 +54,10 @@ def read_file (root,filename):
             #root_shloka = ""
 
 if __name__ == "__main__":
-    files=glob.glob("../data/corpus/raw/sharath/*")
+    files=glob.glob("../data/corpus/raw/suhas/*")
     r_files=[f.split("/")[-1] for f in files]
     for f in files:
-        read_file ("../data/corpus/processed/sharath/",f)
+        if os.path.isfile(f):
+            read_file ("../data/corpus/processed/suhas/",f)
     end=time.time()
     print(str(end-start))

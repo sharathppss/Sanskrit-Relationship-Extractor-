@@ -7,21 +7,37 @@ import json
 from sklearn.svm import SVC
 
 corpus = []
-classes = ['NR']
+test_corpus = []
+classes = []
+relation_dict = {}
+name_syn = {}
+relation_syn = {}
 
-def file_extract(file,n_dict,n_rel):
+def file_extract(file,n_dict,n_rel,data_type):
     res=[]
     with open(file,"r") as f:
         lines=f.read()
         segments=lines.rstrip().split("|")
         #print(segments)
         for s in segments:
-            res=res+p.find_relation_tuples(s.rstrip(),n_dict,n_rel)
+            res=res+p.find_relation_tuples(s.rstrip(),n_dict,n_rel,data_type)
     return res
 
+def extract_relationships():
+    global relation_syn, relation_dict, name_syn
+    with open('Relation.txt') as fd:
+        for line in fd:
+            tokens = [x.rstrip() for x in line.split('\t')]
+            relation_dict[tokens[0] + '|' + tokens[2]] = tokens[1]
+            name_syn[tokens[0]] = tokens[0]
+            name_syn[tokens[2]] = tokens[2]
+    with open('RelationshipSynonyms.txt') as fd:
+        for line in fd:
+            tokens = [x.rstrip() for x in line.split("\t")]
+            relation_syn[tokens[0]] = tokens[1:]
 
-def vectorize(training_data):
-    global corpus, classes
+def vectorize(training_data,test_data):
+    global corpus, classes, test_corpus
     for data in training_data:
         named_pair = data[0]
         rel_class = data[1]
@@ -34,25 +50,34 @@ def vectorize(training_data):
     print(X.toarray()) 
     svm = SVC(C=1000000.0, gamma=0.0, kernel='rbf')
     svm.fit(X, classes)
+    for data in test_data:
+        named_pair = data[0]
+        tokens = data[1]
+        test_corpus.append(' '.join(tokens))
 #    test_corpus = open('test','r').readline().rstrip()
 #    t = []
 #    t.append(test_corpus)
-#    Xtest = vectorizer.transform(t)
-#    pred = svm.predict(Xtest)
-#    print(pred)
+    Xtest = vectorizer.transform(test_corpus)
+    pred = svm.predict(Xtest)
+    print(pred)
 
 if __name__=="__main__":
-    d={'राम':['राम'], 'सीता':['सीता']}
-    r={'राम|सीता':'पतिः'}
-    name_dict=p.find_list(d)
+#    d={'राम':['राम'], 'सीता':['सीता']}
+#    r={'राम|सीता':'पतिः'}
+    extract_relationships()
+    name_dict=p.find_list(name_syn)
     train_data=[]
     #files=glob.glob("data/*")
     files=["data/input.txt"]
     for f in files:
         if os.path.isfile(f):
-            train_data=train_data+file_extract(f,name_dict,r)
+            train_data=train_data+file_extract(f,name_dict,relation_dict, "train")
+    files=glob.glob("test_data/*")
+    for f in files:
+        if os.path.isfile(f):
+            test_data = test_data+file_extract(f,name_dict,relation_dict, "test")
 #    with open('x','w') as fd:
 #        fd.write(json.dumps(train_data))
     print(train_data)
-    #vectorize(train_data)
+    #vectorize(train_data,test_data)
 #train_data is a list of training data with each element having [[name1,name2],relationship,[<list of words in sentence>]]
