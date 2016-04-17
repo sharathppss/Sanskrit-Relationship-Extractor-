@@ -25,10 +25,12 @@ def find_relation_tuples(str,names_all,name_rel, data_type): #names_all=> Dict w
     #names_all=find_list(name_dic)
     #rel_all=find_list(rel_dic)
     for tok in tokens:
-        root=rx.root_ext(tok)
+        #root=rx.root_ext(tok)
+        root=tok
         #print(tok, [ord(c) for c in root], bytes(root, 'utf-8'))
-        if root.encode("utf-8") in names_all.keys():
-            names.add(names_all[root.encode("utf-8")])
+        h=names_all.keys()
+        if root in h:
+            names.add(names_all[root])
     #print(names)
     c=[]
     for n1 in names:
@@ -43,11 +45,16 @@ def find_relation_tuples(str,names_all,name_rel, data_type): #names_all=> Dict w
                     rel = name_rel[n_key_rev]
                 else:
                     return res
-                par=[x for x in tokens if x not in [n1,n2]]
+                par=[x for x in tokens]
                 res.append([[n1,n2],rel,par]) #first arg is name pair,second in relationship between them,final is the list of all tokes in the sentence
             else:
-                par = [x for x in tokens if x not in [n1,n2]]
-                res.append([n1,n2],par)
+                if n1 in tokens and n2 in tokens:
+                    par = [x for x in tokens]
+                    print n1,n2
+                    for xx in tokens:
+                        print xx
+                    print "\n"
+                    res.append([[n1,n2],par])
     return res
 
 if __name__ == "__main__":
