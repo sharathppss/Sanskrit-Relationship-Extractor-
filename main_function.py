@@ -8,7 +8,7 @@ import codecs as cd
 from collections import Set
 from sklearn.svm import SVC
 
-#out=open("features.txt","w")
+out=open("features.txt","w")
 corpus = []
 classes = []
 relation_dict = {}
@@ -47,13 +47,13 @@ def vectorize(training_data,test_data):
         named_pair = data[0]
         rel_class = data[1]
         tokens = data[2]
-        if rel_class=="जननी":
+        if rel_class=="पुत्र":
             classes.append(rel_class)
         else:
             classes.append("NR")
         corpus.append(' '.join(tokens))
         #corpus.append(' '.join(tokens))
-    vectorizer = TfidfVectorizer(min_df=4,sublinear_tf=True,use_idf=True)
+    vectorizer = TfidfVectorizer(min_df=0,sublinear_tf=True,use_idf=True)
     X = vectorizer.fit_transform(corpus)
     print(X.toarray()) 
     svm = SVC(C=10, gamma=0.0, kernel='linear')
@@ -86,8 +86,8 @@ def vectorize(training_data,test_data):
     #    tokens = data[1]
     #    test_corpus.append(' '.join(tokens))
         dict_key_r = named_pair[1] + '|' + named_pair[0]
-        if relation_dict[dict_key] in tokens or relation_dict[dict_key_r] in tokens:
-            print named_pair, relation_dict[dict_key]
+        #if relation_dict[dict_key] in tokens or relation_dict[dict_key_r] in tokens:
+         #   print named_pair, relation_dict[dict_key]
 #    test_corpus = open('test','r').readline().rstrip()
 #    t = []
 #    t.append(test_corpus)
@@ -101,7 +101,7 @@ def vectorize(training_data,test_data):
     for i in range(len(pred)):
         if pred[i]==test_data[i][1]:
             corr1+=1
-        elif pred[i]=="NR" and test_data[i][1]!="जननी":
+        elif pred[i]=="NR" and test_data[i][1]!="पुत्र":
             corr2+=1
         total+=1
         print test_data[i][0][0],test_data[i][0][1],pred[i],test_data[i][1]," ".join(test_data[i][2])
@@ -125,17 +125,17 @@ if __name__=="__main__":
     extract_relationships()
     name_dict=p.find_list(name_syn)
     data=[]
-    #files=glob.glob("data/corpus/processed/*/*")
-    #for f in files:
-    #    if os.path.isfile(f):
-    #        data=data+file_extract(f,name_dict,relation_dict, "train")
-    #files=glob.glob("data/corpus/processed/test_data/*")
-    #for t in data:
-    #    out.write(t[0][0]+":"+t[0][1]+":"+t[1]+":")
-    #    for d in t[2]:
-    #        out.write(d+":")
-    #    out.write("\n")
-    #out.close()
+    files=glob.glob("data/corpus/processed/*/*")
+    for f in files:
+        if os.path.isfile(f):
+            data=data+file_extract(f,name_dict,relation_dict, "train")
+    files=glob.glob("data/corpus/processed/test_data/*")
+    for t in data:
+        out.write(t[0][0]+":"+t[0][1]+":"+t[1]+":")
+        for d in t[2]:
+            out.write(d+":")
+        out.write("\n")
+    out.close()
     out=cd.open("features.txt","r","UTF-8")
     lines=out.readlines()
     data=[]
@@ -144,7 +144,5 @@ if __name__=="__main__":
         x=l.split(":")
         data.append([[x[0],x[1]],x[2],x[3:]])
     train_data,test_data=split_data(data,train_l,test_l)
-    #print [x[1].encode("utf-8") for x in train_data]
-    #print [x.encode("utf-8") for x in test_data]
     vectorize(train_data,test_data)
 #train_data is a list of training data with each element having [[name1,name2],relationship,[<list of words in sentence>]]
