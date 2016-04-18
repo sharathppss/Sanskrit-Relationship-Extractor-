@@ -51,13 +51,19 @@ def vectorize(training_data,test_data):
     print(X.toarray()) 
     svm = SVC(C=1, gamma=0.0, kernel='rbf')
     svm.fit(X, classes)
+    relationship_reverse_dict = p.find_list(relation_syn)
     for data in test_data:
         named_pair = data[0]
         tokens = data[1]
         test_corpus.append(' '.join(tokens))
+        dict_key = named_pair[0] + '|' + named_pair[1]
+        dict_key_r = named_pair[1] + '|' + named_pair[0]
+        if relation_dict[dict_key] in tokens or relation_dict[dict_key_r] in tokens:
+            print named_pair, relation_dict[dict_key]
 #    test_corpus = open('test','r').readline().rstrip()
 #    t = []
 #    t.append(test_corpus)
+        
     Xtest = vectorizer.transform(test_corpus)
     pred = svm.predict(Xtest)
     for i in range(len(pred)):
