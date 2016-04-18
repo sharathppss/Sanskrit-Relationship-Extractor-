@@ -67,7 +67,6 @@ def vectorize(training_data,test_data):
         test_corpus.append(' '.join(tokens))
         dict_key = named_pair[0] + '|' + named_pair[1]
         #dict_key=dict_key.decode("utf-8")
-        dict_key_r = named_pair[1] + '|' + named_pair[0]
         #dict_key_r=dict_key_r.decode("utf-8")
         st=""
         #if dict_key in relation_dict:
@@ -86,9 +85,13 @@ def vectorize(training_data,test_data):
     #    named_pair = data[0]
     #    tokens = data[1]
     #    test_corpus.append(' '.join(tokens))
+        dict_key_r = named_pair[1] + '|' + named_pair[0]
+        if relation_dict[dict_key] in tokens or relation_dict[dict_key_r] in tokens:
+            print named_pair, relation_dict[dict_key]
 #    test_corpus = open('test','r').readline().rstrip()
 #    t = []
 #    t.append(test_corpus)
+        
     Xtest = vectorizer.transform(test_corpus)
     pred = svm.predict(Xtest)
     print "break"+"\n"
