@@ -55,7 +55,8 @@ def vectorize(training_data,test_data):
         #corpus.append(' '.join(tokens))
     vectorizer = TfidfVectorizer(min_df=0,sublinear_tf=True,use_idf=True)
     X = vectorizer.fit_transform(corpus)
-    print(X.toarray()) 
+    print(X.toarray())
+    #print X.toarray().shape
     svm = SVC(C=10, gamma=0.0, kernel='linear')
     svm.fit(X, classes)
     r_s=relation_syn
@@ -104,8 +105,8 @@ def vectorize(training_data,test_data):
         elif pred[i]=="NR" and test_data[i][1]!="पुत्र":
             corr2+=1
         total+=1
-        print test_data[i][0][0],test_data[i][0][1],pred[i],test_data[i][1]," ".join(test_data[i][2])
-    print float(corr1+corr2)/total,corr1,corr2,total
+        print test_data[i][0][0],test_data[i][0][1],pred[i],test_data[i][1]
+    print float(corr1+corr2)/total#,corr1,corr2,total
 
 def split_data(data,train,test):
     train_res=[]

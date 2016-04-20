@@ -54,10 +54,10 @@ def read_file (root,filename):
             #root_shloka = ""
 
 if __name__ == "__main__":
-    files=glob.glob("../data/corpus/raw/suhas/*")
+    files=glob.glob("../data/corpus/raw/aranyakhanda/shloka/6/*")
     r_files=[f.split("/")[-1] for f in files]
     for f in files:
         if os.path.isfile(f):
-            read_file ("../data/corpus/processed/suhas/",f)
+            read_file ("../data/corpus/pr/aranyakhanda/6/",f)
     end=time.time()
     print(str(end-start))
