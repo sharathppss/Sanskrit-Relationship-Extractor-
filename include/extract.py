@@ -4,7 +4,7 @@ import re
 import sys
 
 fd = open (sys.argv[1], "r")
-out_file = sys.argv[1]+".out"
+out_file = sys.argv[1] + ".out"
 fw = open (out_file, "w")
 
 corpus=""
