@@ -4,53 +4,52 @@ import requests
 import bs4
 import time
 import codecs as cs
-start=time.time()
-#sys.stdout = open('output.txt', 'w')
+start = time.time()
 
-def root_ext(inp):
-    print ("word:"+inp)
-    inp=inp.decode("utf-8")
-    response = requests.post("http://sanskrit.uohyd.ac.in/cgi-bin/scl/morph/morph.cgi", data={'morfword':inp, "encoding":"Unicode"})
-    t=response.text
-    #print "Response = ", t
-    t=t.encode("utf-8")
+def root_ext(word):
+    """Function to extract the root/stem of a given word using the 
+    morphological analyzer tool at http://sanskrit.uohyd.ac.in.
+
+    Parameters
+    ----------
+    word : a string whose root has to be extracted. 
+
+    Returns
+    -------
+    The root(type string) of the word.  
+    """
+
+    print ("word:" + word)
+    word = word.decode("utf-8")
+    response = requests.post("http://sanskrit.uohyd.ac.in/cgi-bin/scl/morph/morph.cgi", data={'morfword':word, "encoding":"Unicode"})
+    t = response.text
+    t = t.encode("utf-8")
     try:
-        #t=t.replace("\n","")
-        #t=re.sub(r"(<script>).*(</script>)","",t)
-        tree=bs4.BeautifulSoup(t,"lxml")
-        td=tree.find("td")
-        if td==None:
-            #print (">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
-            return inp
-            #return tree.find("tr").string.rstrip()
-        a=td.find("a")
-        if a==None:
-            x=tree.find("td").string.split()[0]
+        tree = bs4.BeautifulSoup(t,"lxml")
+        td = tree.find("td")
+        if td == None:
+            return word
+        a = td.find("a")
+        if a == None:
+            x = tree.find("td").string.split()[0]
         else:
-            x=a.string.split()[0]
-        r="".join([i for i in x if not i.isdigit()])
-        #td=re.findall("(<td.*>)(.*)(<\/td>)",t)
-        #s=re.findall("<a.*<\/a>",td[0][1])
-        #if s==[]:
-        #    res=td[0][1]
-        #else:
-        #    res=re.findall("(>)(.*[^<])(<\/a)",s[0])[0][1]
+            x = a.string.split()[0]
+        r = "".join([i for i in x if not i.isdigit()])
         return r
     except:
-        #print "Error:"+t
-        return inp
+        return word
 
 if __name__ == "__main__":
-    out=cs.open("output.txt","w","utf-8-sig")
+    out = cs.open("output.txt","w","utf-8-sig")
     with open("../data/input.txt","r") as f:
-        s=f.readlines()
-        for i in s:
-            q=i.split("|")
-            for u in q:
-                a=u.split()
-                for d in a:
-                    out.write("root:"+root_ext(d))
+        shlokas = f.readlines()
+        for shloka in shlokas:
+            segments = shloka.split("|")
+            for segment in segments:
+                line = segment.split()
+                for word in line:
+                    out.write("root:" + root_ext(word))
 
-    end=time.time()
+    end = time.time()
     print(str(end-start))
     #print finder("विश्वामित्रम्")

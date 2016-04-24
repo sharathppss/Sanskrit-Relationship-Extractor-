@@ -39,7 +39,6 @@ def root_ext(inp):
         print "Error:"+t
         return inp
 
-
 def read_file (filename):
     fd = open (filename, "r")
     outname = filename + "_tagged.txt"
