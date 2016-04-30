@@ -58,12 +58,16 @@ def extract_relationships():
             tokens = [x.rstrip() for x in line.split("\t")]
             relation_synonyms[tokens[0]] = tokens
 
-def baseline(test_data): # baseline method implementation
+def baseline(test_data,approach): # baseline method implementation
     correct=0
     total=0
     actual=[]
     pred=[]
     v = ""
+    if approach==1:
+        ind=1
+    else:
+        ind=2
     for pt in test_data:
         syn_list=[]
         if pt[0][0]+"|"+pt[0][1] in relation_dict:
@@ -78,7 +82,7 @@ def baseline(test_data): # baseline method implementation
         if v=="NA":
             continue
         for x in syn_list:
-            if x in pt[2]:
+            if x in pt[ind]:
                 pred.append(v)
                 correct+=1
                 made=True
@@ -86,11 +90,11 @@ def baseline(test_data): # baseline method implementation
             pred.append("NA")
         actual.append(v)
         total+=1
-    res=open("Result_approach2.txt","a")
+    res=open("Result_approach"+str(approach)+".txt","a")
     res.write("Technique:Baseline\n")
     res.write(metrics.classification_report(actual, pred))
-    res.write("Baseline evaluation: "+str(float(correct)/total)+"\n")
-    res.write("Total: "+str(total)+"Correct:"+str(correct)+"\n")
+    res.write("Accuracy: "+str(float(correct)/total)+"\n")
+    #res.write("Total: "+str(total)+"Correct:"+str(correct)+"\n")
 
 def vectorize(training_data, test_data,approach):
     """Function that creates vectors from the training and test data for the SVM,
@@ -117,9 +121,13 @@ def vectorize(training_data, test_data,approach):
     X = vectorizer.fit_transform(corpus)
     svm = SVC(C=10, gamma=0.0, kernel='linear')
     svm.fit(X, classes)
+    if approach==1:
+        ind=1
+    else:
+        ind=2
     for data in test_data:
         named_pair = data[0]
-        tokens = data[2]    #change index to 2 if approach 2
+        tokens = data[ind]
         test_corpus.append(' '.join(tokens).decode("UTF-8",errors="ignore").encode("UTF-8"))
     Xtest = vectorizer.transform(test_corpus)
     prediction = svm.predict(Xtest)
@@ -143,10 +151,10 @@ def vectorize(training_data, test_data,approach):
         actual.append(v)
         predict.append(prediction[i])
         print str(i)+":"+test_data[i][0][0]+":"+test_data[i][0][1]+":"+prediction[i]+":"+v
-    res=open("Result_approach2.txt","w")
-    res.write("Technique Approach"+str(approach)+"\n")
+    res=open("Result_approach"+str(approach)+".txt","w")
+    res.write("Technique Approach "+str(approach)+"\n")
     res.write(metrics.classification_report(actual, predict))
-    res.write("Accuracy:"+str(float(corr1+corr2)/total)+"\n")
+    res.write("Accuracy:"+str(float(corr1+corr2)/total)+"\n\n")
 
 def read_split_dict():
     '''
@@ -243,10 +251,10 @@ def approach_2(name_dict): # split at relation class level approach.
 if __name__=="__main__":
     extract_relationships()
     name_dict = p.reverse_dictionary(name_synonyms)
-    approach=2
+    approach=1
     if approach==2:
         data,data_t=approach_2(name_dict)
     else:
         data,data_t=approach_1(name_dict)
     vectorize(data,data_t,approach)
-    baseline(data_t)
+    baseline(data_t,approach)

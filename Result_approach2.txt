@@ -1,4 +1,4 @@
-Technique Approach2
+Technique Approach 2
              precision    recall  f1-score   support
 
 कर्मकरी       0.25      1.00      0.40         1
@@ -10,6 +10,7 @@ Technique Approach2
 
 avg / total       0.51      0.55      0.52        75
 Accuracy:0.546666666667
+
 Technique:Baseline
              precision    recall  f1-score   support
 
@@ -22,5 +23,4 @@ Technique:Baseline
 मित्र       0.00      0.00      0.00         6
 
 avg / total       0.76      0.16      0.26        75
-Baseline evaluation: 0.16
-Total: 75 Correct:12
+Accuracy: 0.16
