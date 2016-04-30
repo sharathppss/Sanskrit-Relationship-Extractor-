@@ -1,0 +1,25 @@
+Technique Approach1
+             precision    recall  f1-score   support
+
+कर्मकरी       0.00      0.00      0.00         1
+पतिः       0.33      0.36      0.34        14
+पुत्र       0.44      0.33      0.38        33
+भगिनी       0.00      0.00      0.00         0
+भ्राता       0.73      0.75      0.74        81
+मित्र       0.00      0.00      0.00         2
+
+avg / total       0.60      0.59      0.59       131
+Accuracy:0.587786259542
+Technique:Baseline
+             precision    recall  f1-score   support
+
+         NA       0.00      0.00      0.00         0
+कर्मकरी       0.00      0.00      0.00         1
+पतिः       0.00      0.00      0.00        14
+पुत्र       1.00      0.15      0.26        33
+भ्राता       1.00      0.09      0.16        81
+मित्र       0.00      0.00      0.00         2
+
+avg / total       0.87      0.09      0.16       131
+Baseline evaluation: 0.0916030534351
+Total: 131Correct:12

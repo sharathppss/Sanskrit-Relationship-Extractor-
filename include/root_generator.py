@@ -13,7 +13,7 @@ def read_file(root_directory, filename):
 
     Parameters
     ----------
-    root_directory : path of the directory under which the processed file has 
+    root_directory : path of the directory under which the sundarakhanda file has
                     to be written.
     filename : name of the file for which the root extraction has to be done. 
     """
@@ -32,7 +32,7 @@ def read_file(root_directory, filename):
             #m=re.search(".*([२४१३०७]).*",line)
             l = line.decode("utf-8")
             m = re.search(ur".*[\u0966-\u096F].*",l)
-            if (m! = None) or line == "":
+            if (m!= None) or line == "":
                 #print m.group(0)
                 continue
             for word in line.split():
@@ -45,10 +45,10 @@ def read_file(root_directory, filename):
     fdw.close()
 
 if __name__ == "__main__":
-    files = glob.glob("../data/corpus/raw/aranyakhanda/shloka/6/*")
+    files = glob.glob("../data/corpus/raw/Aranyakhanda/3/*")
     r_files = [f.split("/")[-1] for f in files]
     for f in files:
         if os.path.isfile(f):
-            read_file("../data/corpus/pr/aranyakhanda/6/",f)
+            read_file("../data/corpus/sundarakhanda/aranyakhanda/3/",f)
     end = time.time()
     print(str(end-start))

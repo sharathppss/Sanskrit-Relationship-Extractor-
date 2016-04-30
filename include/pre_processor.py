@@ -3,7 +3,15 @@ from include import root_extractor as rx
 #from sets import Set
 import string
 
-def reverse_dictionary(dic): 
+def isEnglish(s):
+    try:
+        s.decode('ascii')
+    except UnicodeDecodeError:
+        return False
+    else:
+        return True
+
+def reverse_dictionary(dic):
     """Function to reverse a dictionary.
 
     Parameters
@@ -68,17 +76,17 @@ def find_relation_tuples(shloka, names_dict, relation_dict, data_type):
                     relation = relation_dict[key_reverse]
                 else:
                     return result
-                features = [x for x in tokens]
+                features = [x for x in tokens if not isEnglish(x)]
                 #first arg is name pair, second in relationship between them, 
                 #final is the list of all tokes in the sentence
                 result.append([[name_1, name_2], relation, features]) 
             else:
                 if name_1 in tokens and name_2 in tokens:
                     features = [x for x in tokens]
-                    print name_1, name_2
-                    for xx in tokens:
-                        print xx
-                    print "\n"
+                    #print name_1, name_2
+                    #for xx in tokens:
+                     #   print xx
+                    #print "\n"
                     result.append([[name_1, name_2], features])
     return result
 

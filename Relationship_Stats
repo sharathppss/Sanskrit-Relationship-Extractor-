@@ -1,0 +1,84 @@
+Relationship:मित्र
+Pair:दशरथ|नृप count:6
+Count for relationship:6
+
+
+Relationship:भगिनी
+Pair:सुमित्रा|कौसल्याम् count:3
+Pair:सौमित्र|कौसल्या count:1
+Pair:कौसल्याम्|सुमित्रा count:1
+Pair:कैकेयी|कौसल्याम् count:1
+Pair:सौमित्र|कौसल्याम् count:1
+Count for relationship:7
+
+
+Relationship:अनुज
+Pair:लक्ष्मण|शत्रुहन् count:3
+Pair:शत्रुहन्|भरत count:4
+Pair:लक्ष्मण|भरत count:10
+Count for relationship:17
+
+
+Relationship:पुत्र
+Pair:लक्ष्मण|दशरथ count:5
+Pair:कुश|राघव count:1
+Pair:सुमित्रा|भरत count:2
+Pair:कौसल्या|राघव count:2
+Pair:शत्रुघ्न|दशरथो count:1
+Pair:राम|कैकेयी count:25
+Pair:राम|सौमित्र count:2
+Pair:राम|कौसल्या count:12
+Pair:राम|सौमित्रि count:19
+Pair:कैकेयी|भरतो count:1
+Pair:कैकेयी|भरत count:13
+Pair:राम|कौसल्याम् count:4
+Count for relationship:87
+
+
+Relationship:सुता
+Pair:जनक|सीता count:1
+Count for relationship:1
+
+
+Relationship:शिष्य
+Pair:ईश्वर|दशरथ count:1
+Count for relationship:1
+
+
+Relationship:भ्राता
+Pair:लक्ष्मण|राम count:116
+Pair:वालि|सुग्रीव count:1
+Pair:भरत|राघव count:9
+Pair:राम|भरत count:35
+Pair:लक्ष्मणो|भरत count:2
+Pair:रावण|शूर्पणखा count:1
+Pair:भरत|शत्रुघ्नो count:2
+Pair:राम|लक्ष्मणो count:7
+Count for relationship:173
+
+
+Relationship:पतिः
+Pair:वैदेही|विष्णु count:1
+Pair:राम|मिथिला count:1
+Pair:सीता|राघवो count:2
+Pair:वालि|तारा count:1
+Pair:राम|सीता count:38
+Pair:सीता|राघव count:14
+Pair:कैकेयी|दशरथ count:4
+Count for relationship:61
+
+
+Relationship:कर्मकरी
+Pair:लक्ष्मण|मन्थरा count:1
+Pair:कैकेयी|मन्थरा count:5
+Pair:मन्त्रो|राघव count:1
+Pair:मन्थर|भरत count:1
+Count for relationship:8
+
+
+Relationship:मातामह
+Pair:कोसल|भरत count:2
+Count for relationship:2
+
+
+Total:363
