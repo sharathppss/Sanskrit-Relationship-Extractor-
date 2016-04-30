@@ -202,11 +202,11 @@ def split_data(data):
     return train_result, test_result
 
 def approach_1(name_dict):# split at corpus class level approach.
-    corpus_used=["aranyakhanda","ayodyakhanda","sundarakhanda","kishkindhasans","balakhanda"]
+    corpus_used=["aranyakhanda","ayodyakhanda","sundarakhanda","balakhanda","kishkindhasans","yudakhanda"]
     data=[]
     files=[]
     for c in corpus_used:
-        files+= glob.glob("data/corpus/processed/training/"+c+"/*")
+        files+= glob.glob("data/corpus/processed/training/*/"+c+"/*")
     for f in files:
         if os.path.isfile(f):
             data = data + extract_features(f, name_dict, "train")
@@ -223,7 +223,7 @@ def approach_2(name_dict): # split at relation class level approach.
     corpus_used=["aranyakhanda","ayodyakhanda","sundarakhanda","balakhanda"]
     files=[]
     for c in corpus_used:
-        files+= glob.glob("data/corpus/processed/training/"+c+"/*")
+        files+= glob.glob("data/corpus/processed/training/*/"+c+"/*")
     for c in corpus_used:
         files+= glob.glob("data/corpus/processed/test/"+c+"/*")
     data=[]
@@ -251,7 +251,7 @@ def approach_2(name_dict): # split at relation class level approach.
 if __name__=="__main__":
     extract_relationships()
     name_dict = p.reverse_dictionary(name_synonyms)
-    approach=1
+    approach=2
     if approach==2:
         data,data_t=approach_2(name_dict)
     else:
